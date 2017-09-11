@@ -4,27 +4,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 
-import command.ArtCommand;
-import command.AskCommand;
-import command.Command;
-import command.EmoteCommand;
-import command.FileCommand;
-import command.GoodCommand;
-import command.HelpCommand;
-import command.HeyCommand;
-import command.HighCommand;
-import command.InfoCommand;
-import command.ListCommand;
-import command.LowCommand;
-import command.OpinionCommand;
-import command.SayCommand;
-import command.StatsCommand;
+import command.*;
+
 import net.dv8tion.jda.core.entities.Emote;
 import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -58,6 +43,7 @@ public class Shard {
 			new AskCommand(),
 			new SayCommand(),
 			new FileCommand(),
+			new RoleCommand(),
 	};
 	public int numcommands = commands.length;
 		

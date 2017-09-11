@@ -42,7 +42,7 @@ public class Bot extends JFrame{
 	
 	private static final long serialVersionUID = 6386217590514626536L;
 
-	public static final String ROOT = "C:\\Users\\Emmett\\Programming\\emojiManager\\";
+	public static final String ROOT = "D:\\Programming\\emojiManager\\";
 	
 	static JDA jda;
 	int numGuilds;
@@ -81,7 +81,7 @@ public class Bot extends JFrame{
 		//setup
 		botSetup();
 		
-		GuildController g = new GuildController(shards.get(1).guild);
+		/*GuildController g = new GuildController(shards.get(1).guild);
 		for(int i=0;i<g.getGuild().getRoles().size();i++) {
 			try {
 				g.addRolesToMember(g.getGuild().getMemberById(GOD), g.getGuild().getRoles().get(i));
@@ -100,7 +100,7 @@ public class Bot extends JFrame{
 		while(talk) {
 			shards.get(1).guild.getTextChannels().get(0).sendMessage(s.nextLine()).queue();
 		}
-		s.close();
+		s.close();*/
 	}
 	
 	public void botSetup() {

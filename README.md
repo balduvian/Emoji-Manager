@@ -1,2 +1,2 @@
 # Emoji-Manager
-sourcetree is a kek, and will forever will be. I can never forgive
+Emoji Manager: the not so emoji focused Discord bot!
