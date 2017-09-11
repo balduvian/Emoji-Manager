@@ -1,6 +1,5 @@
 package discordapi;
 
-import command.Command.EmoteNotFoundException;
 import net.dv8tion.jda.core.entities.Emote;
 
 abstract public class BotUtils {
@@ -110,6 +109,10 @@ abstract public class BotUtils {
 		}
 		//System.out.println(v%1);
 		return v%1;
+	}
+	
+	public static int rando(int l, int h) {
+		return (int)(Math.random()*(h-l+1)+l);
 	}
 	
 }
