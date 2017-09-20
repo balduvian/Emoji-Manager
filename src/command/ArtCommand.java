@@ -12,9 +12,9 @@ public class ArtCommand extends Command{
 		String build = "";
 		int nam = Integer.parseInt(getArgument(0));
 		if(nam<1) {
-			tempsay("Give me a number greater than that!");
+			tempSay("Give me a number greater than that!");
 		}else if(nam>27){
-			tempsay(":b: don't expect me to do that!");
+			tempSay(":b: don't expect me to do that!");
 		}else {
 			for(int i=0;i<nam;i++) {
 				int emn = (int)(Math.random()*shard.numEmotes);

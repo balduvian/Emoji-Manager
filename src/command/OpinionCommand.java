@@ -12,11 +12,10 @@ public class OpinionCommand extends Command{
 			"pret average emoj",
 			"naisu",
 			"meh, seen better",
-			"phteven would lik it, ew",
+			"ew",
 			"prob emt's fav",
 			"rate it how you choose",
 			"pret gud",
-			"almos as gud as :b:",
 			"bes emoj evr",
 			"i hav no opinion on this emoj",
 			"ask ebmbt"
@@ -24,9 +23,10 @@ public class OpinionCommand extends Command{
 	private int numemopinions = emopinions.length;
 	
 	private String[][][] things = {
-		{{"emmett","emet","emmet","emett","emt","emmt","folderbeast","balduviandead","volderbeast","elderbeast","livethan","concern","molderbeast","folderbest"},{"He did a bad...","Bot.GOD","Heyyyyy is he onlin?","He has no friend but me","He spek franch","he protect, he attac, but most importantly he instruc","I hear hes in to weird shit"}},
-		{{"clayton","clatab","clabtab","claytob","cltn","rewind","sploing","sploing1","mcrewind"},{"He a scrub","He creat the cod lan","He not as gud as Emmett","I'll 1v1 him","cut ur hair :b:","at least he didn creat sam:b:y"}},
-		{{"java"},{"What i'm made of","Best programming language","infinitely better than swift"}},
+		{{"568","rip568"},{"tru"},{"inb4 samby bot: \"*Rip 473\""}},
+		{{"emmett","emet","emmet","emett","emt","emmt","balduviandead","embt","pharahbella"},{"he lives for the keks","He did a finna bab","Bot.GOD","oomph","He has no friend but me","at least he's not sab"}},
+		{{"clayton","clatab","clabtab","claytob","cltn","rewind","sploing","sploing1","mcrewind"},{"He a scrub","master of the code land","He not as gud as Emmett","I'll 1v1 him","cut ur hair :b:","at least he didn creat samby"}},
+		{{"java"},{"what i live and breath","yeety yeet","death to swift","truth"}},
 		{{"swift"},{"ew","just ew"}},
 		{{"steven","phteven","stephen","phtephen","phvn"},{"ew","ew, just ew","he liks swift, ew","he neds to c the lit of java"}},
 		{{"sab","bab","sbb","samrussell","samsnell","gnarlynarwhal","narwhal","gnarly"},{"he ok","he neds to chang his prof pic for onc","he is the enemy of the seasons","bald tbh","he creat babbot, smh"}},
@@ -44,29 +44,28 @@ public class OpinionCommand extends Command{
 		{{"thonker","thonk","thinker","superthonker","hyperthonker","thunker","think"},{"some of the best emojis","best mem of 2017","hm..."}},
 		{{"volder","folder","supervolder","hypervolder"},{"a mem to replace thonker","it delets ur stuff, be warned","the bane of k:b:"}},
 		{{"fakepoitthonker"},{"no it real"}},
-		{{"kira","kb","kbbb","volderneast","vikinihil","thevolder"},{"she cam, and she lef","what a tragic story","she fears volders","sad that it caused the downfall of embebt","rip 473, rip emmet"}},
-		{{"sarahbella","cerebella","emojimanager","emojibot","emmettsrobotgirlfriend","emmettswaifu"},{"that's me!"}},
-		{{"samby","sambybot","sambot","sabbot","babbot","sabot"},{"my rival who i crush","I'm so much better than him","i'm soooooo much better than that piece of junk","kick off server now plz","rip 568","the war is on","better shut him off","i like it when he's oflin","i outpower him 50x","throw in the trash","made out of bad cod"}},
-		{{"b"},{"best non custom emoji","i don't track that one",":b:"}},
+		{{"kira","kb","kbbb","vikinihil"},{"she scrid","i'll admit, her mems are scrubby","hmmmm i thonk there's something going on with vb here","finna oof"}},
+		{{"emojimanager","emojibot"},{"that's me","oof p u thonk"}},
+		{{"piratebot"},{"we don't talk about that one"}},
+		{{"samby","sambybot","sambot","sabbot","sabot"},{"written in inferior code","I'm so much better than him","i'm soooooo much better than that piece of junk","kick off server now plz","rip 568","the war is on","better shut him off","i like it when he's oflin","i outpower him 50x","throw in the trash","wate of im to mak","who wuld make something this scrubby"}},
+		{{"b"},{"rip b, make room for p","nikyle was being a scrubby","p"}},
 		{{"bunny"},{" "}},
-		{{"kek"},{"kek","get kek'd","*rip 473"}},
-		{{"bot","bots","discord bots"},{"what bot?","i am one","i am the best on","do u mean that samby on?"}},
-		{{"test"},{":b: don't test me"}},
-		{{"568","rip568"},{"*473"}},
+		{{"kek"},{"kek","get kek'd","B I G O L K E K","finna kek rn"}},
+		{{"bot","bots","discordbots"},{"what bot?","i am one","i am the best one","p don't even say samby bot counts as one"}},
+		{{"test"},{"p don't test me"}},
 		{{"eclipse","eclipseneon","eclipseoxygen"},{"my factory","pret gud, better than that intellij shit"}},
 		{{"intellij"},{"nop","pret shit, don use"}},
-		{{"473","rip473"},{"rip"}},
+		{{"473","rip473"},{"nah"}},
 		{{"gradle","maven","madle","graven","gravdle","mavden","gravlen"},{"nop","sux"}},
 		{{"monstercat"},{"the best music","the only gud music","the onl tru music"}},
 		{{"squigly"},{"i don't know, but i'm worried about what emmt thinks"}},
-		{{"paintnet"},{"stil not as gud as photoshop","nah","only good for bevel and edge detec filter"}},
-		{{"photoshop","ps","adobephotoshop","photshop","phtshp"},{"on par with ms paint","has some nice filters","used to create mor thonkers"}},
-		{{"paint","mspaint","microsoftpaint"},{"best art program","has been used to creat great art","don't try and paint me in that..."}},
-		{{"codeland","phtevenscodeland","codlan","codeserver","thecodeland"},{"best server","Emt's only server... give him some help","best place for cod"}},
-		{{"r34","rule34","rulethirtyfour","nsfw","notsafeforwork","notsafe4work"},{"savior of mankind","what would i do without it","you'll prob find me in there..."}},
-		{{"bluefemales","bluefemale","blufemale","bluefemlel","femlel","femlels","blufemlels"},{"inferior"}},
-		{{"whitemale","whitemales","whitmle","whtml"},{"superior","btr than blu femlels","tolerable","em:b:t is on"}},
-		{{"camelcase","canalcas","camalcas","camelcas","camlecas"},{"seems annoying to write..."}},
+		{{"paintnet"},{"not as gud as photoshop. It's da truth","nah","finna nah"}},
+		{{"photoshop","ps","adobephotoshop","photshop","phtshp"},{"on par with ms paint","filters b o i s","don't even compare it to paint.net sab"}},
+		{{"paint","mspaint","microsoftpaint"},{"when the next comissions come aroun?","clatab's canvas of infinite creativity","p legitty"}},
+		{{"codeland","phtevenscodeland","codlan","codeserver","thecodeland"},{"a hollow shell of what it used to b","blu females kek'd it","sab was a scrubby and lef it"}},
+		{{"r34","rule34","rulethirtyfour","nsfw","notsafeforwork","notsafe4work"},{"savior of mankind","what would i do without it","finna find me there"}},
+		{{"bluefemales","bluefemale","blufemale","bluefemlel","femlel","femlels","blufemlels"},{"we don talk abot that one... (clatab)"}},
+		{{"camelcase","canalcas","camalcas","camelcas","camlecas"},{"finnaOomph"}},
 	};
 	private int numthings = things.length;
 	
@@ -78,7 +77,7 @@ public class OpinionCommand extends Command{
 		try {
 			String potentialName = getArgument(0);
 			if(contemoji(potentialName)) {
-				Emote ji = shard.emotes.get(findEmote(parseemoji(potentialName)));
+				Emote ji = shard.emotes.get(findEmote(parseEmote(potentialName)));
 				int one = (int)(getvalue(ji.getName())*numemopinions);
 				say(emopinions[one]);
 			}else {

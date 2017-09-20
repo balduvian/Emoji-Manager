@@ -14,12 +14,14 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.JFrame;
 
 import command.*;
-
+import net.dv8tion.jda.client.JDAClient;
+import net.dv8tion.jda.client.entities.impl.JDAClientImpl;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.MessageBuilder;
 import net.dv8tion.jda.core.entities.Emote;
+import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.MessageChannel;
@@ -42,7 +44,7 @@ public class Bot extends JFrame{
 	
 	private static final long serialVersionUID = 6386217590514626536L;
 
-	public static final String ROOT = "D:\\Programming\\emojiManager\\";
+	public static final String ROOT = "P:\\Programming\\emojiManager\\";
 	
 	static JDA jda;
 	int numGuilds;
@@ -57,7 +59,8 @@ public class Bot extends JFrame{
 	public static ArrayList<Integer> delstats;
 	
 	public static Command[] flags = {
-		new BunnyCommand(),	
+		new BunnyCommand(),
+		new SabCommand(),
 	};
 	public static int numflags = flags.length;
 	
@@ -68,7 +71,9 @@ public class Bot extends JFrame{
 		
 		//setup JDA
 		try{
-			jda = new JDABuilder(AccountType.BOT).setToken("MzQzODc2NTQyNTM2ODc2MDMy.DGkjfw.lEvZNs9O8P46rr5Bxo2HYU63BDQ").buildBlocking();
+			JDABuilder jBuild = new JDABuilder(AccountType.BOT);
+			jBuild.setGame(Game.of("kek 3.0"));
+			jda = jBuild.setToken("MzQzODc2NTQyNTM2ODc2MDMy.DGkjfw.lEvZNs9O8P46rr5Bxo2HYU63BDQ").buildBlocking();
 		}catch (Exception ex){
 			ex.printStackTrace();
 		}

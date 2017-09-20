@@ -56,11 +56,24 @@ public class RoleCommand extends Command{
 				
 			}else {
 				
-				int r = Integer.parseInt(getArgument(1));
-				int g = Integer.parseInt(getArgument(2));
-				int b = Integer.parseInt(getArgument(3));
+				Color c;
 				
-				Color c = new Color(r,g,b);
+				if(getArgument(1).startsWith("0x")) {
+					
+					int rgb = Integer.parseInt(getArgument(1).split("x")[1],16);
+					
+					c = new Color(rgb);
+					
+				}else {
+					
+					int r = Integer.parseInt(getArgument(1));
+					int g = Integer.parseInt(getArgument(2));
+					int b = Integer.parseInt(getArgument(3));
+					
+					c = new Color(r, g, b);
+					
+				}
+				
 				rm.setColor(c).complete();
 				
 			}

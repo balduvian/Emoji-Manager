@@ -9,7 +9,7 @@ public class InfoCommand extends Command{
 	}
 	
 	public void subRun() throws EmoteNotFoundException, CommandArgumentException {
-		String name = parseemoji(getArgument(0));
+		String name = parseEmote(getArgument(0));
 		int index = findEmote(name);
 		say(getPrintedEmote(shard.emotes.get(index))+" has been used "+shard.data.get(index)+" times");
 	}

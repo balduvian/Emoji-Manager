@@ -38,12 +38,14 @@ public class Shard {
 			new ListCommand(),
 			new ArtCommand(),
 			new HeyCommand(),
-			new EmoteCommand(),
+			//new EmoteCommand(),
 			new OpinionCommand(),
 			new AskCommand(),
 			new SayCommand(),
 			new FileCommand(),
 			new RoleCommand(),
+			new RipCommand(),
+			new GetCommand(),
 	};
 	public int numcommands = commands.length;
 		
@@ -279,10 +281,12 @@ public class Shard {
 								}
 							}
 						}
-					}
-					
-					//check flags
-					char[] puremessage = purify(toLowerCase(message));
+					}	
+				}
+				
+				if(e.getAuthor().getIdLong() != (Bot.selfID)) {
+					//check flags (outside)
+					char[] puremessage = numberPurify(toLowerCase(e.getMessage().getContent().toCharArray()));
 					for(int i=0;i<numflags;i++) {
 						if(hasin(flags[i].trigger.toCharArray(), puremessage)) {
 							try {
@@ -293,27 +297,17 @@ public class Shard {
 						}
 					}
 				}
+			}
 				
-				//delete check
-				else if(e.getAuthor().getIdLong()==Bot.selfID) {
-					
-					if(shouldDelete) {
-						long IDNow = e.getMessage().getIdLong();
-						e.getChannel().deleteMessageById(IDNow).queueAfter(2000, TimeUnit.MILLISECONDS);
-						shouldDelete = false;
-					}
-					/*long IDNow = e.getMessage().getIdLong();
-					
-					for(int i=0;i<toDelete.size();i++) {
-						if(IDNow == toDelete.get(i)) {
-							e.getChannel().deleteMessageById(IDNow).queueAfter(2000, TimeUnit.MILLISECONDS);
-							toDelete.remove(i);
-							break;
-						}
-					}*/
+			//delete check
+			else if(e.getAuthor().getIdLong()==Bot.selfID) {
+				if(shouldDelete) {
+					long IDNow = e.getMessage().getIdLong();
+					e.getChannel().deleteMessageById(IDNow).queueAfter(2000, TimeUnit.MILLISECONDS);
+					shouldDelete = false;
 				}
-				
 			}
 		}
 	}
 }
+

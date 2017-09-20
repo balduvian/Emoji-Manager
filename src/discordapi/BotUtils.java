@@ -1,5 +1,7 @@
 package discordapi;
 
+import java.util.LinkedList;
+
 import net.dv8tion.jda.core.entities.Emote;
 
 abstract public class BotUtils {
@@ -58,6 +60,18 @@ abstract public class BotUtils {
 		return ret;
 	}
 	
+	public static char[] numberPurify(char[] origin) {
+		int length=origin.length;
+		StringBuilder build = new StringBuilder(length);
+		for(int i=0;i<length;i++) {
+			char now = origin[i];
+			if((now>96 && now<123) || (now>47 && now<58)) {
+				build.append(now);
+			}
+		}
+		return build.toString().toCharArray();
+	}
+	
 	public static String purify(String ad) {
 		char[] c = ad.toCharArray();
 		int l=c.length;
@@ -71,7 +85,7 @@ abstract public class BotUtils {
 		return ret;
 	}
 	
-	public static String parseemoji(String ad) {
+	public static String parseEmote(String ad) {
 		char[] c = ad.toCharArray();
 		int l=c.length;
 		String ret = "";

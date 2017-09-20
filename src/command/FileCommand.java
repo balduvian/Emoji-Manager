@@ -8,7 +8,7 @@ import net.dv8tion.jda.core.entities.Message;
 
 public class FileCommand extends Command{
 	
-	String root = "C:\\Users\\Emmett\\Desktop\\EDITS";
+	String root = "P:\\Pictures\\PHOTOSHOP";
 	
 	public FileCommand() {
 		super("file",true,Bot.GOD);
