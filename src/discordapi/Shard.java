@@ -46,6 +46,7 @@ public class Shard {
 			new RoleCommand(),
 			new RipCommand(),
 			new GetCommand(),
+			new ShipCommand(),
 	};
 	public int numcommands = commands.length;
 		

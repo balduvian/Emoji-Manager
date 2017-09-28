@@ -4,6 +4,8 @@ import net.dv8tion.jda.core.managers.RoleManager;
 import static discordapi.BotUtils.*;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.net.URL;
 
 public class RoleCommand extends Command{
 	public RoleCommand() {
@@ -48,7 +50,77 @@ public class RoleCommand extends Command{
             
 		}else if(mode.equals("color")) {
 			
-			if(getArgument(1).equals("random")) {
+			if(getArgument(1).equals("pick")) {
+				
+				BufferedImage b = getFromUrl(new URL(event.getAuthor().getAvatarUrl()));
+				
+				int kekTime = 0;
+				
+				int re;
+				int gr;
+				int bl;
+				int al;
+				
+				do {
+					int x = (int)(Math.random()*b.getWidth());
+					int y = (int)(Math.random()*b.getHeight());
+					int c = b.getRGB(x, y);
+					System.out.println(x +" "+y);
+					
+					al = ((c>>24) & 0xff);
+					re = ((c>>16) & 0xff);
+					gr = ((c>> 8) & 0xff);
+					bl = ((c    ) & 0xff);
+					
+					++kekTime;
+				} while(al==0 || kekTime != 100);
+				
+				Color c = new Color(re,gr,bl);
+				rm.setColor(c).complete();
+				
+			}
+			else if(getArgument(1).equals("match")) {
+				
+				BufferedImage b = getFromUrl(new URL(event.getAuthor().getAvatarUrl()));
+				
+				int w = b.getWidth();
+				int h = b.getHeight();
+				
+				double re = 0;
+				double gr = 0;
+				double bl = 0;
+				
+				double t = 0;
+				for(int i = 0; i < w; ++i) {
+					for(int j = 0; j < h; ++j) {
+						int c = b.getRGB(i, j);
+						System.out.println(c);
+						double mod = (double)((c>>24) & 0xff)/255d;
+						re += ((c>>16) & 0xff)*mod;
+						gr += ((c>> 8) & 0xff)*mod;
+						bl += ((c    ) & 0xff)*mod;
+						t += mod;
+					}
+				}
+				
+				System.out.println(t);
+				
+				if(t==0) {
+					re = 0;
+					gr = 0;
+					bl = 0;
+				}else {
+					re /= t;
+					gr /= t;
+					bl /= t;
+				}
+				
+				System.out.println(re + " " + gr + " " + bl);
+				
+				Color c = new Color((int)re,(int)gr,(int)bl);
+				rm.setColor(c).complete();
+				
+			}else if(getArgument(1).equals("random")) {
 				
 				int hexColor = (int)(Math.random()*0xffffff);
 				Color c = new Color(hexColor);

@@ -25,12 +25,7 @@ public class GetCommand extends Command{
 		
 		Emote found = findActualEmote(eName);
 		
-		URL url = new URL(found.getImageUrl());
-		
-		URLConnection connection = url.openConnection();
-		connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11");
-		connection.connect();
-		BufferedImage b = ImageIO.read(connection.getInputStream());
+		BufferedImage b = getFromUrl( new URL(found.getImageUrl()));
 		
 		File f = new File(ROOT+"saved\\"+found.getName()+".png");
 		ImageIO.write(b, "png", f);

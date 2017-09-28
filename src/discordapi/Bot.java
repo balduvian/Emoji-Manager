@@ -36,10 +36,6 @@ import net.dv8tion.jda.core.managers.GuildManager;
 
 public class Bot extends JFrame{
 	
-	//Client ID: 288556438576431114
-	//Client Secret:
-	//	qWbF9svui9X28C_dzb0zayJICLNHaLOU
-	
 	//https://discordapp.com/oauth2/authorize?client_id=343876542536876032&scope=bot&permissions=0
 	
 	private static final long serialVersionUID = 6386217590514626536L;
@@ -48,6 +44,8 @@ public class Bot extends JFrame{
 	
 	static JDA jda;
 	int numGuilds;
+	
+	public static final String INITIAL_TOKEN = "HrMzJ<_2ILMyILI2J<_2H<Iy)<Cke^s.g=rZIk5O3H06mj1Bsg.HTM23=<M";
 	
 	public static final long GOD = 258485243038662657L;
 	
@@ -66,14 +64,51 @@ public class Bot extends JFrame{
 	
 	public static ArrayList<Shard> shards;
 	
+	public String changeString(String string, byte[] modifs) {
+		int length = string.length();
+		int cycle = modifs.length;
+		int modIndex = 0;
+		StringBuilder build = new StringBuilder(length); 
+		for(int i = 0; i < length; ++i) {
+			build.append((char)(string.charAt(i)+modifs[modIndex]));
+			++modIndex;
+			modIndex %= cycle;
+		}
+		return build.toString();
+	}
+	
 	//start the bot up
 	public Bot(){
+		
+		System.out.println("Entry Key:");
+		
+		Scanner s = new Scanner(System.in);
+		char[] password = s.nextLine().toCharArray();
+		
+		byte[] pass = new byte[4];
+		int length = password.length;
+		int passIndex = 0;
+		
+		StringBuilder numBuild = new StringBuilder(4);
+		for(int i = 0; i < length; ++i) {
+			char now = password[i];
+			if(now == ' ') {
+				pass[passIndex] = Byte.parseByte(numBuild.toString());
+				++passIndex;
+				numBuild = new StringBuilder(4);
+			}else {
+				numBuild.append(now);
+			}
+		}
+		s.close();
+		
+		String token = changeString(INITIAL_TOKEN, pass);
 		
 		//setup JDA
 		try{
 			JDABuilder jBuild = new JDABuilder(AccountType.BOT);
 			jBuild.setGame(Game.of("kek 3.0"));
-			jda = jBuild.setToken("MzQzODc2NTQyNTM2ODc2MDMy.DGkjfw.lEvZNs9O8P46rr5Bxo2HYU63BDQ").buildBlocking();
+			jda = jBuild.setToken(token).buildBlocking();
 		}catch (Exception ex){
 			ex.printStackTrace();
 		}
