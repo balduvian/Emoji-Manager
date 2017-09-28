@@ -73,7 +73,7 @@ public class RoleCommand extends Command{
 					bl = ((c    ) & 0xff);
 					
 					++kekTime;
-				} while(al==0 || kekTime != 100);
+				} while(al==0 && kekTime < 100);
 				
 				Color c = new Color(re,gr,bl);
 				rm.setColor(c).complete();
