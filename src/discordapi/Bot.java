@@ -39,8 +39,6 @@ public class Bot extends JFrame{
 	//https://discordapp.com/oauth2/authorize?client_id=343876542536876032&scope=bot&permissions=0
 	
 	private static final long serialVersionUID = 6386217590514626536L;
-
-	public static final String ROOT = "P:\\Programming\\emojiManager\\";
 	
 	static JDA jda;
 	int numGuilds;

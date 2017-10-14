@@ -27,9 +27,8 @@ public class GetCommand extends Command{
 		
 		BufferedImage b = getFromUrl( new URL(found.getImageUrl()));
 		
-		File f = new File(ROOT+"saved\\"+found.getName()+".png");
+		File f = getFile("res/saved/"+found.getName()+".png");
 		ImageIO.write(b, "png", f);
-		
 		event.getChannel().sendFile(f, new MessageBuilder().append(' ').build()).complete();
 		
 	}

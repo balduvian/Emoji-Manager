@@ -1,7 +1,12 @@
 package discordapi;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.LinkedList;
@@ -29,6 +34,22 @@ abstract public class BotUtils {
 		}
 		
 		return false;
+	}
+	
+	public static File getFile(String path) {
+		return new File(path);
+	}
+	
+	public static InputStream fileIn(String path) {
+		return BotUtils.class.getClass().getResourceAsStream(path);
+	}
+	
+	public static FileOutputStream fileOut(String path) {
+		try {
+			return new FileOutputStream(new File(path));
+		} catch (FileNotFoundException ex) {
+			return null;
+		}
 	}
 	
 	public static BufferedImage getFromUrl(URL url) {

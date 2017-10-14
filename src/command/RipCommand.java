@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 import net.dv8tion.jda.core.MessageBuilder;
 
 import static discordapi.Bot.*;
+import static discordapi.BotUtils.*;
 
 public class RipCommand extends Command{
 
@@ -22,8 +23,8 @@ public class RipCommand extends Command{
 		int ripLength = ripID.length();
 		System.out.println(ripID);
 		if(ripLength==3) {
-			BufferedImage baseTomb = ImageIO.read(new File(ROOT+"rip\\tombstone.png"));
-			BufferedImage numberRef = ImageIO.read(new File(ROOT+"rip\\numbers.png"));
+			BufferedImage baseTomb = ImageIO.read(fileIn("res/rip/tombstone.png"));
+			BufferedImage numberRef = ImageIO.read(fileIn("res/rip/numbers.png"));
 			
 			Graphics g = baseTomb.getGraphics();
 			
@@ -59,11 +60,6 @@ public class RipCommand extends Command{
 						int gre2 = (int)(red0 * mod1 + gre1 * mod0);
 						int blu2 = (int)(blu0 * mod1 + blu1 * mod0);
 						
-						/*System.out.println("a: " + alp0 + " " + alp1 + " " + alp2);
-						System.out.println("r: " + red0 + " " + red1 + " " + red2);
-						System.out.println("g: " + gre0 + " " + gre1 + " " + gre2);
-						System.out.println("b: " + blu0 + " " + blu1 + " " + blu2);*/
-						
 						int nColor = (blu2) | (gre2 << 8) | (red2 << 16) | (alp2 << 24);
 								
 						baseTomb.setRGB(17+(i*25)+x, 65+y, nColor);
@@ -74,7 +70,7 @@ public class RipCommand extends Command{
 			if(glyphs[0]==4 && glyphs[1]==7 && glyphs[2]==3 ) {
 				say("nah");
 			}else {
-				File sav = new File(ROOT+"\\rip\\gen\\rip"+ripID+".png");
+				File sav = getFile("res\\rip\\gen\\rip"+ripID+".png");
 				ImageIO.write(baseTomb, "PNG", sav);
 				event.getChannel().sendFile(sav, new MessageBuilder().append(" ").build()).complete();
 			}

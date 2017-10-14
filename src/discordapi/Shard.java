@@ -3,6 +3,7 @@ package discordapi;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -38,7 +39,6 @@ public class Shard {
 			new ListCommand(),
 			new ArtCommand(),
 			new HeyCommand(),
-			//new EmoteCommand(),
 			new OpinionCommand(),
 			new AskCommand(),
 			new SayCommand(),
@@ -75,9 +75,8 @@ public class Shard {
 	}
 	
 	public void loaddata() {
-		File f = new File(ROOT + "data\\" + guild.getIdLong());
 		try {
-			FileInputStream o = new FileInputStream(f);
+			InputStream o = fileIn("res/data/" + guild.getIdLong());
 			int av = o.available();
 			int loadedEmotes = av/36;
 			
@@ -110,7 +109,7 @@ public class Shard {
 			
 		}catch(Exception ex) {
 			try {
-				FileOutputStream o = new FileOutputStream(f);
+				FileOutputStream o = fileOut("res/data/" + guild.getIdLong());
 				o.close();
 			} catch (Exception ex2) {
 				ex2.printStackTrace();
@@ -220,9 +219,8 @@ public class Shard {
 					}
 					
 					//save emoji data
-					File f = new File(Bot.ROOT + "data\\" + guild.getIdLong());
 					try {
-						FileOutputStream o = new FileOutputStream(f);//start output stream
+						FileOutputStream o = fileOut("res/data/" + guild.getIdLong());
 						for(int i = 0; i < numEmotes; ++i) {//for each emoji
 							char[] name = emotes.get(i).getName().toCharArray();//turn name into char array
 							for(int c = 0; c < 32; ++c) {//32 bytes deticated to each name

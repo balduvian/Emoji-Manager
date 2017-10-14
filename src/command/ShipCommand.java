@@ -35,14 +35,14 @@ public class ShipCommand extends Command{
 			BufferedImage p0 = getFromUrl(new URL(ps.get(0).getAvatarUrl()));
 			System.out.println(ps.get(0).getAvatarUrl());
 			BufferedImage p1 = getFromUrl(new URL(ps.get(1).getAvatarUrl()));
-			BufferedImage heart = ImageIO.read(new File(Bot.ROOT+"ship\\heart.png"));
+			BufferedImage heart = ImageIO.read(getFile("res/ship/heart.png"));
 			Graphics g = b.getGraphics();
 			g.drawImage(p0,0,0,128,128,null);
 			g.drawImage(p1,128,0,128,128,null);
 			g.drawImage(heart, 64, 0, 128, 128, null);
-			File f = new File(Bot.ROOT+"saved\\_ship_.png");
-			ImageIO.write(b, "PNG", f);
 			
+			File f = getFile("res/saved/_ship_.png");
+			ImageIO.write(b, "PNG", f);
 			event.getChannel().sendFile(f, new MessageBuilder().append("ship name: "+jars).build()).complete();
 		}
 	}
