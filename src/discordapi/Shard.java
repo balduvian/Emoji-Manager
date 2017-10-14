@@ -76,7 +76,7 @@ public class Shard {
 	
 	public void loaddata() {
 		try {
-			InputStream o = fileIn("res/data/" + guild.getIdLong());
+			InputStream o = new FileInputStream("res/data/" + guild.getIdLong());
 			int av = o.available();
 			int loadedEmotes = av/36;
 			

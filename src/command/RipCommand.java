@@ -23,8 +23,8 @@ public class RipCommand extends Command{
 		int ripLength = ripID.length();
 		System.out.println(ripID);
 		if(ripLength==3) {
-			BufferedImage baseTomb = ImageIO.read(fileIn("res/rip/tombstone.png"));
-			BufferedImage numberRef = ImageIO.read(fileIn("res/rip/numbers.png"));
+			BufferedImage baseTomb = ImageIO.read(getFile("res/rip/tombstone.png"));
+			BufferedImage numberRef = ImageIO.read(getFile("res/rip/numbers.png"));
 			
 			Graphics g = baseTomb.getGraphics();
 			
@@ -70,7 +70,7 @@ public class RipCommand extends Command{
 			if(glyphs[0]==4 && glyphs[1]==7 && glyphs[2]==3 ) {
 				say("nah");
 			}else {
-				File sav = getFile("res\\rip\\gen\\rip"+ripID+".png");
+				File sav = getFile("res/rip/gen/rip"+ripID+".png");
 				ImageIO.write(baseTomb, "PNG", sav);
 				event.getChannel().sendFile(sav, new MessageBuilder().append(" ").build()).complete();
 			}

@@ -40,10 +40,6 @@ abstract public class BotUtils {
 		return new File(path);
 	}
 	
-	public static InputStream fileIn(String path) {
-		return BotUtils.class.getClass().getResourceAsStream(path);
-	}
-	
 	public static FileOutputStream fileOut(String path) {
 		try {
 			return new FileOutputStream(new File(path));
